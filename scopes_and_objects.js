@@ -9,6 +9,8 @@ console.log(`
 
 let globalCount = 4
 
+console.log(`globalCount: ${globalCount}`)
+
 console.log(`
   ==============================================================================
   ToDo 2: local scope
@@ -18,10 +20,12 @@ console.log(`
 
 // TODO: Create a function that demonstrates local scope
 
-function localCount(num)
+function localCount()
 {
-    num + 5
+    return num = 5
 }
+
+console.log(`localCount ${localCount()}`)
 
 console.log(`
   ==============================================================================
@@ -35,10 +39,16 @@ console.log(`
 function stateCount(local,global)
 {
     local = 6 
-    global = 9
+    globalCount = 9
     
-    return {local:local, global:globalCount}
+    return [local,globalCount];
 }
+
+let initialLocalValue = 10; 
+
+const [newLocalValue, newGlobalValue] = stateCount(initialLocalValue, globalCount);
+
+console.log(`The new local value is: ${newLocalValue} and the new globalCount is: ${globalCount} and is NICE!...`)
 
 console.log(`
   ==============================================================================
@@ -56,6 +66,10 @@ function Student(name, id, field)
     this.field = field
 }
 
+const student_0 = new Student('Loyiso Hans', 'S1000', 'Data Analysis')
+
+console.log(`our student portal includes`, student_0,`for stuff to access`)
+
 console.log(`
   ==============================================================================
   ToDo 5: instances
@@ -72,6 +86,17 @@ const student_4 = new Student('Diana Green', 'S1004', 'Biochemistry')
 const student_5 = new Student('Ethan Hunt', 'S1005', 'Architecture')
 const student_6 = new Student('Fiona Clark', 'S1006', 'Psychology')
 const student_7 = new Student('George King', 'S1007', 'Mechanical Engineering')
+
+console.log
+(
+    "\n",student_1,"\n",
+    student_2,"\n",
+    student_3,"\n",
+    student_4,"\n",
+    student_5,"\n",
+    student_6,"\n",
+    student_7,"\n",
+)
 
 console.log(`
   ==============================================================================
@@ -98,5 +123,8 @@ const universityData = {
             programs: ["Mathematics", "History", "Literature"]
         }
     },
-    currentStudents: [student1, student2]
+    currentStudents: [student_1, student_2]
 }
+
+console.log(`University Engineering Programs: ${universityData.departments.engineering.programs.join(', ')}`)
+console.log(`Student 1's Field (from universityData): ${universityData.currentStudents[0].field}`)
