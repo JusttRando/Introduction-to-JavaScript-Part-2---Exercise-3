@@ -37,7 +37,7 @@ function stateCount(local,global)
     local = 6 
     global = 9
     
-    return {local:localCount(local), global:globalCount}
+    return {local:local, global:globalCount}
 }
 
 console.log(`
