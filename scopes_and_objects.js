@@ -9,12 +9,13 @@ console.log(`
 
 let globalCount = 4
 
-console.log(`globalCount: ${globalCount}`)
+console.log(`the globalCount: ${globalCount}`)
 
 console.log(`
   ==============================================================================
-  ToDo 2: local scope
+  ToDo 2: local scope & modify variables
   Create a function that demonstrates local scope
+  Create a function that tries to modify both variables
   ==============================================================================
   `)
 
@@ -22,33 +23,22 @@ console.log(`
 
 function localCount()
 {
-    return num = 5
+    localCount = 20
+    console.log(`the localCount:${localCount}`)
+    changeCount()
+
+    function changeCount()
+    {
+        localCount = 6
+        globalCount = 9
+
+        console.log(`the new localCount:${localCount}`)
+        console.log(`the new globeCount:${globalCount}`)
+    }
 }
 
-console.log(`localCount ${localCount()}`)
+localCount()
 
-console.log(`
-  ==============================================================================
-  ToDo 3: modify variables
-  Create a function that tries to modify both variables
-  ==============================================================================
-  `)
-
-// TODO: Create a function that tries to modify both variables
-
-function stateCount(local,global)
-{
-    local = 6 
-    globalCount = 9
-    
-    return [local,globalCount];
-}
-
-let initialLocalValue = 10; 
-
-const [newLocalValue, newGlobalValue] = stateCount(initialLocalValue, globalCount);
-
-console.log(`The new local value is: ${newLocalValue} and the new globalCount is: ${globalCount} and is NICE!...`)
 
 console.log(`
   ==============================================================================
